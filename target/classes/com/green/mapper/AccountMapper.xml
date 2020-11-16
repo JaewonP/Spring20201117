@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.green.mapper.AccountMapper">
+ 	<select id ="acList" resultType="com.green.domain.AccountVO">
+		<![CDATA[ 
+			select * from tbl_buy where free_id > 0
+		]]>
+ 	</select>
+	
+	<select id ="get" resultType="com.green.domain.AccountVO">
+			select * from tbl_buy where free_id = #{free_id}
+ 	</select>
+
+	<select id ="getOne" resultType="com.green.domain.AccountVO">
+			select * from tbl_buy where free_name = #{free_name}
+ 	</select>
+
+	<delete id="delete">
+		delete from tbl_buy where invoice =  #{invoice}
+	</delete>
+	
+	<insert id="insertBuy">
+		<selectKey keyProperty="free_id" order="BEFORE" resultType="long">
+			select tbl_seq.nextval from dual
+		</selectKey>
+		insert into tbl_buy (free_id, free_name, free_password, main_address, detail_address, cellphone, invoice, goods, price, quantity, total_price, coupon, coupon_use) values (#{free_id}, #{free_name}, #{free_password}, #{main_address},#{detail_address}, #{cellphone}, #{invoice}, #{goods}, #{price}, #{quantity}, #{total_price}, #{coupon}, #{coupon_use})
+	</insert>
+	
+	
+	
+ </mapper>

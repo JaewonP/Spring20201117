@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.green.mapper.RegisterMapper">
+ 	<select id ="regList" resultType="com.green.domain.RegisterVO">
+		<![CDATA[ 
+			select * from register where free_id >0
+		]]>
+ 	</select>
+	
+	<select id ="getOneName" resultType="com.green.domain.RegisterVO">
+			select * from register where free_name = #{free_name}
+ 	</select>
+
+
+	<select id ="get" resultType="com.green.domain.RegisterVO">
+			select * from register where free_id = #{free_id}
+ 	</select>
+
+	
+	<insert id="inputPerson">
+		<selectKey keyProperty="free_id" order="BEFORE" resultType="long">
+			select reg_seq.nextval from dual
+		</selectKey>
+		insert into register (free_id, free_name, free_password, main_address, detail_address, juminNo, homeNum, cellphone) values (#{free_id}, #{free_name}, #{free_password}, #{main_address},#{detail_address}, #{juminNo}, #{homeNum}, #{cellphone})
+	</insert>
+	
+	
+	
+ </mapper>
