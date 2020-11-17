@@ -1,5 +1,7 @@
 package com.green.controller;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -54,16 +56,47 @@ public class LoginController {
 		//reg.setFree_id(service.getOne(reg.getFree_name(), reg.getFree_password()).getFree_id());
 		//model.addAttribute("login", service.getOne(reg.getFree_name(), reg.getFree_password()));
 		System.out.println(reg.getFree_name());
-		Long i = service.getOneName(reg.getFree_name()).getFree_id();
-		System.out.println(i);
-		return "redirect:/login/getOne?free_id=" + i;
+		
+		if(service.getOneName(reg.getFree_name()) != null) {
+			Long i = service.getOneName(reg.getFree_name()).getFree_id();
+			return "redirect:/login/getOne?free_id=" + i;
+			
+		}
+		else {
+			
+			return "redirect:/login";
+		}
+		
 	}
 
 	
 	@PostMapping("login/register")
 	public String register(RegisterVO reg, Model model) {
-		service.inputPerson(reg);
-		return "redirect:/login";
+		
+		System.out.println(reg.getFree_name());	
+		String a = reg.getFree_name();
+		System.out.println(a);
+		for(RegisterVO temp : service.regList()) {
+			if(temp.getFree_name() == null) {
+				
+				continue;
+			}
+			else {
+			if(temp.getFree_name().equals(a)) {
+				System.out.println("되는지");
+				model.addAttribute("idMul", "아이디가 중복되었습니다.");
+				return "redirect:/login/register";
+				
+				
+			} else {
+				service.inputPerson(reg);
+				
+				}
+			}
+		}
+		return "redirect:/login";	
+
+		
 	}
 	
 	@GetMapping("login/getOne")

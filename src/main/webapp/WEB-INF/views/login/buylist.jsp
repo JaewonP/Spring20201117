@@ -14,7 +14,7 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 		<button type="button" onclick="location.href='../login/list'">
-			idlist로 돌아가기
+			회원정보로 돌아가기
 		</button>
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
