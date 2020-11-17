@@ -42,7 +42,8 @@ public class LoginController {
 	
 	
 	@RequestMapping("login/register")
-	public String register() {
+	public String register(Model model) {
+		
 		return "login/register";
 	}
 	
@@ -69,13 +70,13 @@ public class LoginController {
 		
 	}
 
-	
 	@PostMapping("login/register")
 	public String register(RegisterVO reg, Model model) {
 		
 		System.out.println(reg.getFree_name());	
 		String a = reg.getFree_name();
 		System.out.println(a);
+		
 		for(RegisterVO temp : service.regList()) {
 			if(temp.getFree_name() == null) {
 				
@@ -85,15 +86,14 @@ public class LoginController {
 			if(temp.getFree_name().equals(a)) {
 				System.out.println("되는지");
 				model.addAttribute("idMul", "아이디가 중복되었습니다.");
-				return "redirect:/login/register";
+				//return "redirect:/login/register";
 				
-				
-			} else {
-				service.inputPerson(reg);
-				
-				}
+				return "login/register";
+			}
 			}
 		}
+		
+		service.inputPerson(reg);
 		return "redirect:/login";	
 
 		

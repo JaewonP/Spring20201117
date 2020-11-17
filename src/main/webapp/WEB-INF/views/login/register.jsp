@@ -9,7 +9,7 @@
 </head>
 <body>
 	<form action="/login/register" method ="post">
-		아이디<input type="text" name="free_name"><br>
+		아이디<input type="text" name="free_name">${idMul}<br>
 		비밀번호<input type="password" name="free_password"><br>
 		주소<select name="main_address">
     			<option value="">--지역구를 선택하세요--</option>

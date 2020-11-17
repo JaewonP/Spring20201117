@@ -20,19 +20,24 @@
     <div class="panel-body">   
 	<form id="myForm" action="buy" method="post">
             <div class="form-group">
-                <label>이름</label><input class="form-control" name="free_name" value='<c:out value="${login.free_name}"/>' readonly="readonly">
+                <label>이름</label><input class="form-control" name="free_name" 
+                value='<c:out value="${login.free_name}"/>' readonly="readonly">
             </div>
             <div class="form-group">
-            	<label>비밀번호</label><input class="form-control" name="free_password" value='<c:out value="${login.free_password}"/>' readonly="readonly">
+            	<label>비밀번호</label><input class="form-control" name="free_password" 
+            	value='<c:out value="${login.free_password}"/>' readonly="readonly">
             </div>
             <div class="form-group">
-            	<label>주소</label><input class="form-control" name="main_address" value='<c:out value="${login.main_address}"/>' readonly="readonly">
+            	<label>주소</label><input class="form-control" name="main_address" 
+            	value='<c:out value="${login.main_address}"/>' readonly="readonly">
             </div>
 			<div class="form-group">
-            	<label>상세주소</label><input class="form-control" name="detail_address" value='<c:out value="${login.detail_address}"/>' readonly="readonly">
+            	<label>상세주소</label><input class="form-control" name="detail_address" 
+            	value='<c:out value="${login.detail_address}"/>' readonly="readonly">
             </div>
             <div class="form-group">
-            	<label>모바일 전화번호</label><input class="form-control" name="cellphone" value='<c:out value="${login.cellphone}"/>' readonly="readonly">
+            	<label>모바일 전화번호</label><input class="form-control" name="cellphone" 
+            	value='<c:out value="${login.cellphone}"/>' readonly="readonly">
             </div>
             <div class="form-group">
             	<label>송장번호</label><input class="form-control" name="invoice">
@@ -67,49 +72,9 @@
             <button class="btn btn-warning">구매하기</button>
         </div>
              <script>
- 			
-/*              function makechange() {
- 				
- 				var getValue;
- 				
- 				
- 				if ($("#target").attr("value") == 'americano') {
- 					getValue = 3000;
- 				}
- 				if ($("#target").attr("value") == 'caffelatte') {
- 					getValue = 4000;
- 				}
- 				if ($("#target").attr("value") == 'espressso') {
- 					getValue = 5000;
- 				}
- 				if ($("#target").attr("value") == 'tea') {
- 					getValue = 2000;
- 				}
- 				if ($("#target").attr("value") == 'smoothie') {
- 					getValue = 4500;
- 				}
- 				$("#priceIs").val(getValue);	
- 				console.log(getValue);
- 				
- 			} */
-              
-/*              function total() {
-            	 var total = ($("#quantityIs").val() * $("#priceIs").val()) - $("#couponIs");
-            	 $("#totalIs").val(total);
-             } */
-             
-/*              function couponUse() {
-            	 if($("#couponIs").val() != null) {
-            		 $("couponUse").val("Y");
-            	 }
-            	 else {
-            		 $("couponUse").val("N");
-            	 }
-             }
-              */
+
         	$(document).ready(function() {
-        		
-        		
+
         			//$("#target").on('keyup', makechange);
         			var getValue;
         			$("#target").change(function() {
@@ -143,9 +108,7 @@
              				}
 
         			})
-		
-        			//$("#target option:selected").val(makechange);
-        			//console.log(getValue);
+
         			var total;
         			$("#quantityIs").on('keyup', function () {
         				 total = ($("#quantityIs").val() * $("#priceIs").val());
@@ -163,7 +126,8 @@
 	                		 $("#couponUse").val("N");
 	                	 }
 	                   	 
-	                   	 total = ($("#quantityIs").val() * $("#priceIs").val())- ($("#couponIs").val());
+	                   	 total = ($("#quantityIs").val() * $("#priceIs").val()) 
+	                   	 - ($("#couponIs").val());
 	                   	$("#totalIs").val(total);
         			});	
         			

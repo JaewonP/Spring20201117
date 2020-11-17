@@ -25,7 +25,11 @@
 		<selectKey keyProperty="free_id" order="BEFORE" resultType="long">
 			select tbl_seq.nextval from dual
 		</selectKey>
-		insert into tbl_buy (free_id, free_name, free_password, main_address, detail_address, cellphone, invoice, goods, price, quantity, total_price, coupon, coupon_use) values (#{free_id}, #{free_name}, #{free_password}, #{main_address},#{detail_address}, #{cellphone}, #{invoice}, #{goods}, #{price}, #{quantity}, #{total_price}, #{coupon}, #{coupon_use})
+		insert into tbl_buy (free_id, free_name, free_password, main_address, detail_address, 
+		cellphone, invoice, goods, price, quantity, total_price, coupon, coupon_use) 
+		values (#{free_id}, #{free_name}, #{free_password}, #{main_address},#{detail_address}, 
+		#{cellphone}, #{invoice}, #{goods}, #{price}, #{quantity}, #{total_price}, 
+		#{coupon}, #{coupon_use})
 	</insert>
 	
 	
