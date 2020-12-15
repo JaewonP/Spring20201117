@@ -16,6 +16,9 @@
 		<button type="button" onclick="location.href='../login/buylist'">
 			회원의 구매이력
 		</button>
+		<button type="button" onclick="location.href='../login/register'">
+			회원 가입
+		</button>
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">

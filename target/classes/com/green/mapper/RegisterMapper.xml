@@ -23,7 +23,9 @@
 		<selectKey keyProperty="free_id" order="BEFORE" resultType="long">
 			select reg_seq.nextval from dual
 		</selectKey>
-		insert into register (free_id, free_name, free_password, main_address, detail_address, juminNo, homeNum, cellphone) values (#{free_id}, #{free_name}, #{free_password}, #{main_address},#{detail_address}, #{juminNo}, #{homeNum}, #{cellphone})
+		insert into register (free_id, free_name, free_password, main_address, 
+		detail_address, juminNo, homeNum, cellphone) values (#{free_id}, #{free_name}, 
+		#{free_password}, #{main_address},#{detail_address}, #{juminNo}, #{homeNum}, #{cellphone})
 	</insert>
 	
 	

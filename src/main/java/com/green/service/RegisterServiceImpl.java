@@ -37,7 +37,10 @@ public class RegisterServiceImpl implements RegisterService{
 	@Override
 	public void inputPerson(RegisterVO reg) {
 		// TODO Auto-generated method stub
-		mapper.inputPerson(reg);
+		
+		
+			mapper.inputPerson(reg);
+	
 	}
 
 	public RegisterVO get(Long free_id) {
