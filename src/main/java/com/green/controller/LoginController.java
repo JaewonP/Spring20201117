@@ -105,5 +105,11 @@ public class LoginController {
 		service.delete(invoice);
 		return "redirect:list";
 	}
+	
+	@RequestMapping("login/test")
+	public String returnTest(Model model, AccountVO ac) {
+		
+		return "login/test";
+	}
 
 }
