@@ -111,5 +111,11 @@ public class LoginController {
 		
 		return "login/test";
 	}
+	
+	@RequestMapping("login/test2")
+	public String returnTest2(Model model, AccountVO ac) {
+		
+		return "login/test2";
+	}
 
 }
